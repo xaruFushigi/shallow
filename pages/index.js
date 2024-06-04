@@ -13,7 +13,7 @@ export default function Index({ initialPropsCounter }) {
   const { pathname } = router; // Only need pathname here
 
   const handleAboutClick = () => {
-    router.push('/about'); // Simulate "About" click for conditional rendering
+    router.push('/about', {shallow: true}); // Simulate "About" click for conditional rendering
   };
 
   const reload = () => {
