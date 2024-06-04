@@ -12,6 +12,12 @@ export async function getServerSideProps() {
 export default function Index({ initialPropsCounter }) {
   const router = useRouter();
   const { pathname, query } = router;
+
+  // Handle "About" link click with shallow routing
+  const handleAboutClick = () => {
+    router.push('/about', '/about', { shallow: true });
+  };
+
   const reload = () => {
     router.push(format({ pathname, query }));
   };
@@ -25,7 +31,8 @@ export default function Index({ initialPropsCounter }) {
   return (
     <div>
       <h2>This is the Home Page</h2>
-      <Link href="/about">About</Link>
+      {/* Replace with the About link using handleAboutClick */}
+      <button onClick={handleAboutClick}>About</button>
       <button onClick={reload}>Reload</button>
       <button onClick={incrementCounter}>Change State Counter</button>
       <p>"getServerSideProps" ran for "{initialPropsCounter}" times.</p>
